@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CycLink - Campus Deliveries, Tours & Promotions</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f9fafb;
+        color: #1f2937;
+    }
+    header, footer {
+        background-color: #0da574;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+    nav {
+        background-color: #14b884;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+    nav a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    section {
+        display: none;
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin-top: 20px;
+    }
+    section.active {
+        display: block;
+    }
+    h2 {
+        color: #0da574;
+        margin-top: 0;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    input, select, textarea, button {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        margin-top: 5px;
+    }
+    button {
+        background-color: #0da574;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0a7a57;
+    }
+    iframe {
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>CycLink</h1>
+    <p><em>Connecting every corner of KNUST</em></p>
+</header>
+
+<section id="login-section" class="active">
+    <h2>Login or Sign Up</h2>
+    <div class="form-group">
+        <label for="email">Username or Gmail:</label>
+        <input type="email" id="email" placeholder="Enter your username or Gmail">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <button onclick="login()">Login</button>
+</section>
+
+<nav id="main-nav" style="display: none;">
+    <a href="#" onclick="navigate('welcome')">Home</a>
+    <a href="#" onclick="navigate('delivery')">Delivery Service</a>
+    <a href="#" onclick="navigate('tours')">Campus Tours</a>
+    <a href="#" onclick="navigate('promotions')">Promotions</a>
+    <a href="#" onclick="navigate('track')">Track Delivery</a>
+    <a href="#" onclick="navigate('dashboard')">Dashboard</a>
+    <a href="#" onclick="navigate('contact')">Contact Us</a>
+    <a href="#" onclick="navigate('call')">Call Us</a>
+    <a href="#" onclick="navigate('logout')">Logout</a>
+</nav>
+
+<section id="welcome">
+    <h2>Welcome to CycLink!</h2>
+    <p>We provide fast on-campus deliveries, engaging guided campus tours, and effective in-motion promotions. All services are eco-friendly and student-run.</p>
+</section>
+
+<section id="delivery">
+    <h2>Delivery Service</h2>
+    <p>Fast, affordable deliveries for food, documents, and parcels anywhere on KNUST campus.</p>
+    <div class="form-group">
+        <label for="delivery-details">Delivery Details:</label>
+        <textarea id="delivery-details" placeholder="Pickup point, drop-off point, item description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="delivery-payment">Payment Method:</label>
+        <select id="delivery-payment">
+            <option>MTN Mobile Money</option>
+            <option>Vodafone Cash</option>
+            <option>AirtelTigo</option>
+        </select>
+    </div>
+    <button onclick="alert('Delivery booked!')">Book Delivery</button>
+</section>
+
+<section id="tours">
+    <h2>Guided Campus Tours</h2>
+    <p>Discover KNUST with our simple, curated bike tours showcasing halls, departments, and landmarks.</p>
+    <div class="form-group">
+        <label for="tour-date">Preferred Tour Date:</label>
+        <input type="date" id="tour-date">
+    </div>
+    <div class="form-group">
+        <label for="tour-group-size">Group Size:</label>
+        <input type="number" id="tour-group-size" placeholder="Number of people">
+    </div>
+    <button onclick="alert('Tour booked!')">Book Tour</button>
+</section>
+
+<section id="promotions">
+    <h2>Promotions During Deliveries</h2>
+    <p>Get your message seen! We display your ads on delivery bikes and rider uniforms during daily operations.</p>
+    <div class="form-group">
+        <label for="promo-duration">Ad Duration:</label>
+        <select id="promo-duration">
+            <option>1 week</option>
+            <option>2 weeks</option>
+            <option>1 month</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="promo-details">Ad Details / Artwork Link:</label>
+        <textarea id="promo-details" placeholder="Describe your ad or paste artwork link"></textarea>
+    </div>
+    <button onclick="alert('Promotion request sent!')">Request Promotion</button>
+</section>
+
+<section id="track">
+    <h2>Track Delivery</h2>
+    <p>Check the current location of your delivery in real time:</p>
+    <iframe src="https://maps.google.com/maps?q=KNUST&t=&z=15&ie=UTF8&iwloc=&output=embed" height="300"></iframe>
+</section>
+
+<section id="dashboard">
+    <h2>Dashboard - Settings</h2>
+    <div class="form-group">
+        <label for="new-password">Change Password:</label>
+        <input type="password" id="new-password" placeholder="Enter new password">
+    </div>
+    <button onclick="alert('Password updated!')">Update Password</button>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" placeholder="Subject">
+    </div>
+    <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" rows="5" placeholder="Write your message..."></textarea>
+    </div>
+    <button onclick="alert('Message sent!')">Send Message</button>
+</section>
+
+<section id="call">
+    <h2>Call Us</h2>
+    <p>Contact our support line: <strong>0245182224</strong></p>
+</section>
+
+<section id="logout">
+    <h2>You have logged out.</h2>
+    <p>Thank you for using CycLink.</p>
+</section>
+
+<footer>
+    &copy; 2025 CycLink | All Rights Reserved.
+</footer>
+
+<script>
+    function login() {
+        const email = document.getElementById('email').value;
+        const pwd = document.getElementById('password').value;
+        if (email && pwd) {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('main-nav').style.display = 'flex';
+            navigate('welcome');
+        } else {
+            alert("Please enter both email and password.");
+        }
+    }
+
+    function navigate(sectionId) {
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
